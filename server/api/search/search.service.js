@@ -20,11 +20,10 @@ var populateAttendees = function(yelp_item) {
         return reject(err);
       }
 
-      if (!dbBusiness) {
-        return resolve(yelp_item);
+      if (dbBusiness) {
+        yelp_item.attending = dbBusiness.attending;
       }
 
-      yelp_item.attending = dbBusiness.attending;
       return resolve(yelp_item);
     });
   });
