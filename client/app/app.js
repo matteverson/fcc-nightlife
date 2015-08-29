@@ -5,6 +5,7 @@ angular.module('fccNightlifeApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
+  'ngMaterial',
   'ui.bootstrap'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {

@@ -44,6 +44,13 @@ var all = {
     }
   },
 
+  yelp: {
+    consumer_key:    process.env.YELP_CONSUMER_KEY || 'consumer_key',
+    consumer_secret: process.env.YELP_CONSUMER_SECRET || 'consumer_secret',
+    token:           process.env.YELP_TOKEN_ID || 'token_id',
+    token_secret:    process.env.YELP_TOKEN_SECRET || 'token_secret',
+  },
+
   twitter: {
     clientID:     process.env.TWITTER_ID || 'id',
     clientSecret: process.env.TWITTER_SECRET || 'secret',

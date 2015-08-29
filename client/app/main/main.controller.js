@@ -2,21 +2,16 @@
 
 angular.module('fccNightlifeApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+    //$scope.businesses = [];
+    $scope.businesses = [{name: 'test', snippet_text: 'A really long test snippet about how awesome the restaurant is. Totally the best!'}];
+    $scope.city = '';
+    $scope.searching = false;
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
-
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
-
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
+    $scope.search = function() {
+      $scope.searching = true;
+      $http.get('/api/search/' + $scope.city).success(function(businesses) {
+        $scope.businesses = businesses;
+        $scope.searching = false;
+      });
+    }
   });
