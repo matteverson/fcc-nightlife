@@ -20,7 +20,7 @@
           <h4>{{ business.attending.length || 'Nobody' }} attending</h4>
           <p>"{{ business.snippet_text }}"</p>
         </div>
-        <md-button ng-click="attend(business)" class="md-fab md-mini" aria-label="I'm in">
+        <md-button ng-click="attend(business)" class="md-fab md-mini" aria-label="I'm in" ng-class="{'md-primary': isAttending(business)}">
           <md-icon>person_add</md-icon>
         </md-button>
       </md-list-item>
