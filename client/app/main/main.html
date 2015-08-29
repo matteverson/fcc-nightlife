@@ -13,14 +13,14 @@
     </form>
     <md-progress-circular ng-show="searching" class="md-hue-2" md-mode="indeterminate"></md-progress-circular>
     <md-list layout-margin>
-      <md-list-item class="result-item md-2-line" ng-repeat="business in businesses">
-        <img ng-src="{{business.image_url}}" ng-show="{{business.image_url}}" class="md-avatar" alt="Image for {{business.name}}" />
-        <md-icon ng-hide="{{business.image_url.length}}">people</md-icon>
+      <md-list-item class="result-item md-3-line" ng-repeat="business in businesses">
+        <img ng-src="{{business.image_url || '../../assets/images/location_city.png'}}" class="md-avatar" alt="Image for {{business.name}}" />
         <div class="md-list-item-text">
-          <h3>{{business.name}}</h3>
-          <p>"{{business.snippet_text}}"</p>
+          <h3>{{ business.name }}</h3>
+          <h4>{{ business.attending.length || 'Nobody' }} attending</h4>
+          <p>"{{ business.snippet_text }}"</p>
         </div>
-        <md-button class="md-fab md-mini" aria-label="I'm in">
+        <md-button ng-click="attend(business)" class="md-fab md-mini" aria-label="I'm in">
           <md-icon>person_add</md-icon>
         </md-button>
       </md-list-item>
